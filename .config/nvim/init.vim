@@ -51,7 +51,7 @@ set list
 
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'medium'
 
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact

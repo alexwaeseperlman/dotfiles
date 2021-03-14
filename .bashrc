@@ -121,7 +121,7 @@ alias vi=nvim
 export PATH=$PATH:$HOME/.cargo/bin
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-	tmux
+	tmux attach || tmux new
 fi
 
 # >>> conda initialize >>>
