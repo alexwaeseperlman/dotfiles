@@ -4,7 +4,16 @@ read -p "This file will replace all of your dotfiles without restraint. Are you 
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	sudo apt install fish neovim tmux
+	sudo apt install fish tmux git
+
+	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+	chmod u+x nvim.appimage
+	./nvim.appimage --appimage-extract
+	
+	mv squashfs-root nvim
+
+	sudo rm /usr/bin/nvim
+	sudo ln -s "$(pwd)/nvim/AppRun" /usr/bin/nvim
 
 	rm $HOME/.bashrc
 	rm $HOME/.tmux.conf
