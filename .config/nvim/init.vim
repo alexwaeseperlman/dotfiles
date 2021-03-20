@@ -26,8 +26,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'eslint/eslint'
+Plug 'vim-python/python-syntax'
+Plug 'wellle/targets.vim'
 
 call plug#end()
+
+let g:python_highlight_all = 1
 
 set number relativenumber
 
@@ -48,7 +52,7 @@ set shiftwidth=0
 
 set list
 
-imap <c-space> <Plug>(asyncomplete_force_refresh)
+imap <c-space> <C-O><Plug>(asyncomplete_force_refresh)
 
 let g:gruvbox_contrast_dark = 'medium'
 
@@ -61,3 +65,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+nmap <leader>rn <Plug>(coc-rename)
+
+
+tmap 
