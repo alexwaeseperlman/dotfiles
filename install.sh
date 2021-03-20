@@ -26,4 +26,5 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	done
 
 	fish ./install_packages.fish
+	rm nvim.appimage
 fi
