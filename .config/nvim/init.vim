@@ -1,15 +1,15 @@
 set laststatus=2
 set t_Co=256
 
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'othree/yajs.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree' | 
-			\ Plug 'Xuyuanp/nerdtree-git-plugin' |
-			\ Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'morhetz/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -17,7 +17,6 @@ Plug 'mg979/vim-visual-multi'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-repeat'
@@ -25,9 +24,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'eslint/eslint'
 Plug 'vim-python/python-syntax'
 Plug 'wellle/targets.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'luochen1990/rainbow'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -61,14 +62,23 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 let g:NERDTreeGitStatusShowIgnored = 1
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
+set mouse=a
 nnoremap <SPACE> <Nop>
 let mapleader = " "
-nmap <leader>rn <Plug>(coc-rename)
 
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>grf <Plug>(coc-references)
+nmap <leader>grn <Plug>(coc-rename)
+nmap <leader>gt :call CocAction('doHover')<CR>
 
-tmap 
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+inoremap <C-l> <Esc>
+
+let g:vimtex_compiler_latexmk = { 'build_dir' : 'build' }
