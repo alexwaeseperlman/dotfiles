@@ -118,11 +118,11 @@ fi
 
 alias vi=nvim
 
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/go/bin
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-	tmux attach || tmux new
-fi
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#	tmux attach || tmux new
+#fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -139,4 +139,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-exec fish
+wal -R
+
+#exec fish

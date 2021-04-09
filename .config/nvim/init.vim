@@ -16,15 +16,17 @@ Plug 'preservim/nerdcommenter'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'wellle/targets.vim'
 Plug 'lervag/vimtex'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
 let mapleader = " "
 
 let g:python_highlight_all = 1
-
 set number relativenumber
 
-autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme wal
+"colorscheme gruvbox
+"autocmd vimenter * ++nested colorscheme wal
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
 autocmd vimenter * wincmd 1
