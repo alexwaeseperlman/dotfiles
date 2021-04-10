@@ -4,7 +4,7 @@ read -p "This file will replace all of your dotfiles without restraint. Are you 
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	sudo apt install tmux git
+	sudo pacman -S tmux git
 
 	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 	chmod u+x nvim.appimage
