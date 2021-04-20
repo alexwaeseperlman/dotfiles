@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Maxattax97/coc-ccls'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'gruvbox-community/gruvbox'
@@ -24,8 +25,8 @@ let mapleader = " "
 let g:python_highlight_all = 1
 set number relativenumber
 
+let g:gruvbox_contrast_dark = 'hard'
 colorscheme wal
-"colorscheme gruvbox
 "autocmd vimenter * ++nested colorscheme wal
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
@@ -34,7 +35,7 @@ autocmd vimenter * wincmd 1
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 
-let g:airline_theme='gruvbox'
+let g:airline_theme='wal'
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline_powerline_fonts = 1
 set tabstop=4
@@ -43,7 +44,6 @@ set shiftwidth=0
 set list
 
 imap <c-space> <C-O><Plug>(asyncomplete_force_refresh)
-let g:gruvbox_contrast_dark = 'hard'
 
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact

@@ -43,8 +43,6 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -57,10 +55,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left 100px
+bindsym $mod+Shift+j move down 100px
+bindsym $mod+Shift+k move up 100px
+bindsym $mod+Shift+l move right 100px
 
 # split in horizontal orientation
 bindsym $mod+Mod1+h split h
@@ -85,6 +83,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+bindsym $mod+i focus child
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -141,10 +140,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 50 px or 10 ppt
+        bindsym j resize grow height 50 px or 10 ppt
+        bindsym k resize shrink height 50 px or 10 ppt
+        bindsym l resize grow width 50 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -180,3 +179,23 @@ bindsym $mod+p scratchpad show
 
 # Use st
 bindsym $mod+Return exec st -z 25
+
+bindsym --release $mod+Shift+s exec import "$HOME/screenshots/Screenshot $(date).png"
+
+# Load colors from pywal
+# Copied from https://github.com/dylanaraps/pywal/wiki/Customization
+set_from_resource $fg i3wm.color4 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $light i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $fg     $fg     $bg  $fg       $fg
+client.focused_inactive $fg     $fg     $bg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $fg
+
+client.background       $bg
+
+# PROTIP: You can also dynamically set dmenu's colors this way:
+bindsym $mod+d exec dmenu_run -nb "$bg" -nf "$fg" -sb "$fg" -sf "$bg"

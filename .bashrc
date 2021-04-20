@@ -118,7 +118,7 @@ fi
 
 alias vi=nvim
 
-export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/go/bin
+export PATH=$HOME/.cargo/bin:$HOME/.local/bin:$HOME/go/bin:$PATH
 
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #	tmux attach || tmux new
@@ -126,19 +126,26 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/go/bin
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/alex/.config/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/alex/.config/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/alex/.config/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/alex/.config/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/alex/.config/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/alex/.config/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/alex/.config/anaconda3/bin:$PATH"
+        export PATH="/home/alex/.config/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-wal -R
+export MANPAGER="nvim +Man!"
+export MANWIDTH=999
+
+#if [ -f $HOME/.fehbg ]; then
+#	$HOME/.fehbg
+#fi
+
+wal -R > /dev/null
 
 #exec fish
