@@ -18,6 +18,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'wellle/targets.vim'
 Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal.vim'
+Plug 'bfrg/vim-cpp-modern'
 
 call plug#end()
 let mapleader = " "
@@ -59,6 +60,11 @@ nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>grf <Plug>(coc-references)
 nmap <leader>grn <Plug>(coc-rename)
 nmap <leader>gt :call CocAction('doHover')<CR>
+
+nmap <leader>[ <Plug>AirlineSelectPrevTab
+nmap <leader>] <Plug>AirlineSelectNextTab
+
+nnoremap <leader>; :bp<bar>sp<bar>bn<bar>bd<CR>
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
